@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block body %}
+<h2>{{blog.title}}</h2>
+<p>{{blog.description}}</p>
+
+<h3>All Comments</h3>
+{% for comment in comments %}
+
+<p><b>{{comment.name}}</b></p>
+<hr />
+<p>{{comment.message}}</p>
+<hr />
+{% endfor %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <label for="">Name</label>
+  <input type="text" name="name" />
+  <br />
+
+  <label for="">Message</label>
+  <textarea name="message" cols="30" rows="10"></textarea>
+  <br />
+
+  <button>Submit</button>
+</form>
+{% endblock %}
